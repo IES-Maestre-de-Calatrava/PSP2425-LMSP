@@ -1,0 +1,14 @@
+ El volumen de la unidad C no tiene etiqueta.
+ El n£mero de serie del volumen es: 3C16-F8AE
+
+ Directorio de C:\Users\b15-04m\Desktop\PSP\PSP\lanzadorProcesos
+
+26/09/2024  11:05    <DIR>          .
+26/09/2024  11:05    <DIR>          ..
+27/09/2024  12:53    <DIR>          files
+18/09/2024  14:26             2.445 nbactions.xml
+13/09/2024  14:11               756 pom.xml
+13/09/2024  14:12    <DIR>          src
+26/09/2024  11:05    <DIR>          target
+               2 archivos          3.201 bytes
+               5 dirs  341.267.181.568 bytes libres

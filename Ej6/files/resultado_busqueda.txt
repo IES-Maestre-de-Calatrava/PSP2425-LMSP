@@ -1,0 +1,3 @@
+303 ocurrencias en el fichero directory\LICENSE
+1 ocurrencias en el fichero directory\README
+3 ocurrencias en el fichero directory\ThirdPartyNotices.txt

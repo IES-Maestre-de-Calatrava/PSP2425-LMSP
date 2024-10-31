@@ -1,0 +1,13 @@
+ El volumen de la unidad C no tiene etiqueta.
+ El n£mero de serie del volumen es: 6AAE-4609
+
+ Directorio de C:\Users\Usuario\Desktop\DAM2\PSP\PSP\ej2
+
+30/09/2024  20:55    <DIR>          .
+30/09/2024  20:55    <DIR>          ..
+19/10/2024  18:11    <DIR>          files
+30/09/2024  20:55               738 pom.xml
+30/09/2024  20:55    <DIR>          src
+26/09/2024  07:28    <DIR>          target
+               1 archivos            738 bytes
+               5 dirs   2.140.110.848 bytes libres

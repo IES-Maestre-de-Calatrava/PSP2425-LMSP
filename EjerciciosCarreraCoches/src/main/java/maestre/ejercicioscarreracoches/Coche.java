@@ -6,6 +6,8 @@
 package maestre.ejercicioscarreracoches;
 
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,10 +25,33 @@ public class Coche extends Thread{
         this.nMetrosIter = rnd.nextInt(100)+1;
         this.nMetros = 0;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getnMetrosIter() {
+        return nMetrosIter;
+    }
+
+    public int getnMetros() {
+        return nMetros;
+    }
+
+    public void setnMetros(int nMetros) {
+        this.nMetros = nMetros;
+    }
+    Carrera carrera = Carrera.getInstance();
     @Override
     public void run(){
-        while(true){
-            
+        while(!carrera.isAcabada()){
+            nMetros += nMetrosIter;
+            carrera.avanzar(this);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Coche.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

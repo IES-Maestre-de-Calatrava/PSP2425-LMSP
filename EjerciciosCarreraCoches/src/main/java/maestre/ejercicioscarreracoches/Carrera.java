@@ -16,15 +16,18 @@ import java.util.Random;
 public class Carrera {
     private static Carrera instance = null;
     private int distancia;
+    private boolean carreraAcabada;
     private Carrera(){
         Random rnd = new Random();
         this.distancia = rnd.nextInt(1000)+1;
+        this.carreraAcabada = false;
     }
-
     public int getDistancia() {
         return distancia;
     }
-    
+    public synchronized boolean isAcabada(){
+        return carreraAcabada;
+    }
     private static synchronized void createInstance(){
         if(instance == null){
             instance = new Carrera();
@@ -36,5 +39,10 @@ public class Carrera {
         }
         return instance;
     }
-    
+    public synchronized void avanzar(Coche coche){
+        if(coche.getnMetros()>= distancia){
+            sout
+        }
+        
+    }
 }

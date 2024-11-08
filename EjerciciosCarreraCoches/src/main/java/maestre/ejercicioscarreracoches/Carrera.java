@@ -41,7 +41,7 @@ public class Carrera {
     }
     public synchronized void avanzar(Coche coche){
         if(coche.getnMetros()>= distancia){
-            sout
+           
         }
         
     }

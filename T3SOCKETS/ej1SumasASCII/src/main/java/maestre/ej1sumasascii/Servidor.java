@@ -22,69 +22,30 @@ import java.util.List;
  */
 public class Servidor {
     
-    private int extraerNumero(String linea) {
-		
-        int numero;
-        try {
-                numero = Integer.parseInt(linea);
-        } catch (NumberFormatException e) {
-                numero = 0;
-        }
+    
 
-        return numero;
-    }
-
-    private int calcular(String entrada) {
-
-        int resultado = 0;
-        char[] aChars = entrada.toCharArray();
-        for(int i = 0; i<aChars.length;i++){
-            resultado += (int)aChars[i];
-        }
-        
-        return resultado;
-    }
+    
 
     public void escuchar() throws IOException{
             System.out.println("Arrancado el servidor");
             ServerSocket socketEscucha = null;
             Socket conexion=null;
-            InputStream is = null;
-            InputStreamReader isr = null;
-            BufferedReader bf = null;
-            OutputStream os = null;
-            PrintWriter pw = null;
             try {
                     socketEscucha = new ServerSocket(9876);
                     while (true) {
                             try {
+                                    System.out.println("Esperando peticion");
                                     conexion = socketEscucha.accept();
                                     System.out.println("Conexion recibida!");
-                                    is = conexion.getInputStream();
-                                    isr = new InputStreamReader(is);
-                                    bf = new BufferedReader(isr);
-                                    String entradas = bf.readLine();
-                                    os = conexion.getOutputStream();
-                                    pw = new PrintWriter(os);
-                                    for(int i =0;i<extraerNumero(entradas);i++){
-                                        String entrada = bf.readLine();
-                                        int result = this.calcular(entrada);
-                                        pw.write(result + "\n");
-                                        pw.flush();
-                                    }
-
-                                    
-                                    
+                                    Peticion hilo = new Peticion(conexion);
+                                    hilo.run();
+                               
                             } catch (IOException e) {
                                     System.out.println("Error al aceptar conexion "+e.getMessage());
                                     e.printStackTrace();
                                     throw e;
                             } finally {
-                                    close(pw);
-                                    close(os);
-                                    close(bf);
-                                    close(isr);
-                                    close(is);
+                
                                     close(conexion);
                             }
                     }
@@ -94,6 +55,7 @@ public class Servidor {
                     throw e;
             } finally {
                     close(socketEscucha);
+     
             }		
     }
 

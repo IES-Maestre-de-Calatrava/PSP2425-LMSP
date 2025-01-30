@@ -18,15 +18,18 @@ public class ReceptorDatagram {
 			System.out.println("Recibiendo mensaje");
 			
 			byte[] mensaje = new byte[25];
-			DatagramPacket datagrama1 = new DatagramPacket (mensaje,25);
+			DatagramPacket datagrama1 = new DatagramPacket (mensaje,mensaje.length);
 			datagramSocket.receive(datagrama1);//se bloquea hasta que recibe un mensaje
 			
 			System.out.println("Mensaje recibido: " + new String(mensaje));
 			
+                        String mensajeStr = "mensaje desde el receptor";
+			
+			
 			System.out.println("Enviando mensaje");
 			
 			InetAddress addr2 = InetAddress.getByName("localhost");
-			DatagramPacket datagrama2 = new DatagramPacket (mensaje,mensaje.length,addr2,5556);
+			DatagramPacket datagrama2 = new DatagramPacket (mensajeStr.getBytes(),mensajeStr.getBytes().length,datagrama1.getAddress(),datagrama1.getPort());
 			datagramSocket.send(datagrama2);
 			
 			System.out.println("Mensaje enviado");

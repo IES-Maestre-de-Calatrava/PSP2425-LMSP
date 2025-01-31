@@ -6,8 +6,8 @@ public class EmailSender {
 
 	public void sendEmail(String recipient, String subject, String body) {
 		//Crear Contraseñas de aplicación: java
-		final String username = "TU_CORREO_DE GMAIL";
-		final String password = "TU CONTRASEÑA DE APLICACION JAVA DE GMAIL";
+		final String username = "lm.serrano.p@gmail.com";
+		final String password = "xlgp cghh ubxj urlp";
 
 		Properties props = new Properties();
 		props.put("mail.transport.protocol", "smtp");
@@ -19,12 +19,12 @@ public class EmailSender {
 
 		try {
 			Session session = Session.getInstance(props,
-				    new javax.mail.Authenticator() {
-				        protected PasswordAuthentication getPasswordAuthentication() {
-				            return new PasswordAuthentication(username, password);
-				        }
-				    }
-				);
+					new javax.mail.Authenticator() {
+						protected PasswordAuthentication getPasswordAuthentication() {
+							return new PasswordAuthentication(username, password);
+						}
+					}
+			);
 			session.setDebug(true);
 
 			MimeMessage message = new MimeMessage(session);
@@ -43,9 +43,9 @@ public class EmailSender {
 	}
 
 	public static void main(String[] args) {
-		String email = "DIRECCION DE CORREO A LA QUE QUIERES ENVIAR EL CORREO";
-		String subject = "Test Email";
-		String body = "Hola,\nEsto es una prueba de envio de correo.";
+		String email = "pablovelascoruiz68@gmail.com";
+		String subject = "Rata";
+		String body = "Hola,\nlas ratas son animales bellos en algunas culturas como la Akapatelka de la isla de Wiharouh, y además son animales sabrosos cocinado s a fuego lento.";
 
 		// Sending email without attachment
 		EmailSender emailSender = new EmailSender();
